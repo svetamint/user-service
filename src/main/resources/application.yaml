@@ -1,0 +1,13 @@
+grpc:
+  port: 8001
+spring:
+  application:
+    name: user-service
+  datasource:
+    driverClassName: org.postgresql.Driver
+    password: yourpassword
+    url: jdbc:postgresql://localhost:5432/testdb
+    username: backstage_user
+  liquibase:
+    change-log: classpath:db/db.changelog-master.xml
+    enabled: true

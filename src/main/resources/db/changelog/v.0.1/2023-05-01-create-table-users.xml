@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+  <changeSet id="2" author="m.surmach">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="users" schemaName="user_service"/>
+      </not>
+    </preConditions>
+    <createTable tableName="users" schemaName="user_service">
+      <column name="id" type="BIGSERIAL">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="firstname" type="VARCHAR(100)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="lastname" type="VARCHAR(100)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="email" type="VARCHAR(50)">
+        <constraints nullable="false" unique="true"/>
+      </column>
+      <column name="phone_number" type="VARCHAR(15)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+</databaseChangeLog>

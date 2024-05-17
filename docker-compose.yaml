@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+  user-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      #POSTGRES_HOST: backstage-postgres
+      NOTIFICATION_SERVICE_HOST: user-service
+    ports:
+      - '8001:8001'
