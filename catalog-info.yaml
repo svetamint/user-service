@@ -10,10 +10,10 @@ spec:
   lifecycle: experimental
   owner: team-b
   system: delivery-portal
-  providesApis:
-    - create-user
-    - update-user
-    - delete-user
-    - find-all-users
-    - find-user-by-id
-    - find-user-by-email
+  # providesApis:
+  #   - create-user
+  #   - update-user
+  #   - delete-user
+  #   - find-all-users
+  #   - find-user-by-id
+  #   - find-user-by-email
