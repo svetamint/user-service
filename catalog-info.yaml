@@ -4,7 +4,8 @@ metadata:
   name: "user-service"
   annotations:
     github.com/project-slug: slebiadzko/user-service
-    backstage.io/techdocs-ref: dir:.
+    github.com/project-cicd: https://github.com/svetamint/user-service/actions
+    backstage.io/techdocs-ref: url:https://github.com/svetamint/user-service
 spec:
   type: service
   lifecycle: experimental
