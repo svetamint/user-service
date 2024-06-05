@@ -12,10 +12,10 @@ spec:
   owner: team-b
   system: delivery-portal
   
-  # ci:
-  #   - type: github-actions
-  #     name: User Service CI/CD
-  #     url: https://github.com/svetamint/user-service/actions?query=workflow%3ACI  
+  ci:
+    - type: github-actions
+      name: User Service CI/CD
+      url: https://github.com/svetamint/user-service/actions?query=workflow%3ACI  
   
   # providesApis:
   #   - create-user
