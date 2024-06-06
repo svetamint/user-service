@@ -3,7 +3,7 @@ kind: Component
 metadata:
   name: "user-service"
   annotations:
-    github.com/project-slug: slebiadzko/user-service
+    github.com/project-slug: svetamint/user-service
     github.com/project-cicd: https://github.com/svetamint/user-service/actions
     backstage.io/techdocs-ref: url:https://github.com/svetamint/user-service
 spec:
@@ -11,6 +11,12 @@ spec:
   lifecycle: experimental
   owner: team-b
   system: delivery-portal
+  
+  ci:
+    - type: github-actions
+      name: User Service CI/CD
+      url: https://github.com/svetamint/user-service/actions?query=workflow%3ACI  
+  
   # providesApis:
   #   - create-user
   #   - update-user
