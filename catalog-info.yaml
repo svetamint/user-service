@@ -4,23 +4,10 @@ metadata:
   name: "user-service"
   annotations:
     github.com/project-slug: svetamint/user-service
-    github.com/project-cicd: https://github.com/svetamint/user-service/actions
     backstage.io/techdocs-ref: dir:.
 spec:
   type: service
   lifecycle: experimental
   owner: team-b
   system: delivery-portal
-  
-#  ci:
-#    - type: github-actions
-#      name: User Service CI/CD
-#      url: https://github.com/svetamint/user-service/actions?query=workflow%3ACI
-  
-  # providesApis:
-  #   - create-user
-  #   - update-user
-  #   - delete-user
-  #   - find-all-users
-  #   - find-user-by-id
-  #   - find-user-by-email
+
