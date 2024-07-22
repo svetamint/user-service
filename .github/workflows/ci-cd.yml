@@ -34,5 +34,4 @@ jobs:
 
       - name: Build user-service
         run: |
-          cd user-service
           mvn clean install
