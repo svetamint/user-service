@@ -24,10 +24,15 @@ jobs:
         with:
           java-version: '17'
 
+      - name: List files for debugging
+        run: ls -R
+
       - name: Build and install proto-common
         run: |
           cd proto-common
           mvn clean install
 
       - name: Build user-service
-        run: mvn --file pom.xml clean install
+        run: |
+          cd user-service
+          mvn clean install
