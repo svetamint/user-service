@@ -23,6 +23,7 @@
         <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
         <liquibase.version>4.21.1</liquibase.version>
         <postgresql.version>42.6.0</postgresql.version>
+        <grpc.version>1.54.1</grpc.version> <!-- Specify the grpc version here -->
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -30,6 +31,32 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <start-class>com.godeltech.com.godeltech.users.UserServiceApplication</start-class>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Manage GRPC dependencies versions -->
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-core</artifactId>
+                <version>${grpc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-netty-shaded</artifactId>
+                <version>${grpc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-services</artifactId>
+                <version>${grpc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-testing</artifactId>
+                <version>${grpc.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <repositories>
         <repository>
@@ -64,6 +91,33 @@
             <artifactId>proto-common</artifactId>
             <version>0.1</version>
         </dependency>
+        <!-- JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.7.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.7.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-testing</artifactId>
+            <version>${grpc.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Mockito -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>3.9.0</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -85,7 +139,6 @@
             <artifactId>snakeyaml</artifactId>
             <version>2.2</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -115,20 +168,6 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
-
-            <!--      <plugin>-->
-            <!--        <artifactId>maven-failsafe-plugin</artifactId>-->
-            <!--        <version>2.22.2</version>-->
-            <!--        <configuration>-->
-            <!--          <includes>-->
-            <!--            <include>**/*IT.java</include>-->
-            <!--            <include>**/integrationtests/*.java</include>-->
-            <!--            <include>**/it/**/*.java</include>-->
-            <!--          </includes>-->
-            <!--        </configuration>-->
-            <!--      </plugin>-->
-
-            <!-- Quality Configuration -->
             <plugin>
                 <groupId>com.coveo</groupId>
                 <artifactId>fmt-maven-plugin</artifactId>
@@ -145,7 +184,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.5</version>
+                <version>0.8.8</version>
                 <executions>
                     <execution>
                         <goals>
@@ -155,24 +194,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!--      <plugin>-->
-            <!--        <artifactId>maven-enforcer-plugin</artifactId>-->
-            <!--        <executions>-->
-            <!--          <execution>-->
-            <!--            <id>enforce</id>-->
-            <!--            <goals>-->
-            <!--              <goal>enforce</goal>-->
-            <!--            </goals>-->
-            <!--            <configuration>-->
-            <!--              <rules>-->
-            <!--                <requireUpperBoundDeps/>-->
-            <!--              </rules>-->
-            <!--            </configuration>-->
-            <!--          </execution>-->
-            <!--        </executions>-->
-            <!--      </plugin>-->
-
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
