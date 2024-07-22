@@ -13,13 +13,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout user-service repository
         uses: actions/checkout@v2
+
+      - name: Checkout proto-common repository
+        run: git clone https://github.com/kkorchyts/proto-common.git
 
       - name: Set up JDK 17
         uses: actions/setup-java@v1
         with:
           java-version: '17'
 
-      - name: Build with Maven
-        run: mvn --file pom.xml clean install
+      - name: List files for debugging
+        run: ls -R
+
+      - name: Build and install proto-common
+        run: |
+          cd proto-common
+          mvn clean install
+
+      - name: Build user-service
+        run: |
+          mvn clean package
+
+      - name: Run tests for user-service
+        run: |
+          mvn test
