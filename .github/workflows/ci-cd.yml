@@ -36,9 +36,16 @@ jobs:
       - name: Run tests for user-service
         run: |
           mvn test
+          mvn surefire-report:report
 
-      - name: Report test results
-        uses: actions/upload-artifact@v2
-        with:
-          name: junit-results
-          path: target/surefire-reports/*.xml
+      - name: Copy HTML Report to docs directory
+        run: |
+          mkdir -p docs/test-results
+          cp target/site/surefire-report.html docs/test-results/
+      - name: Commit and Push Test Results
+        run: |
+              git add docs/test-results/
+              git commit -m "Update test results"
+              git push
+            env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
