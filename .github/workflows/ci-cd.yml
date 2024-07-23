@@ -38,6 +38,11 @@ jobs:
           mvn test
           mvn surefire-report:report
 
+      - name: Configure Git
+        run: |
+          git config user.name "s.lebiadzko"
+          git config user.email "svetamint@gmail.com"
+
       - name: Copy HTML Report to docs directory
         run: |
           mkdir -p docs/test-results
