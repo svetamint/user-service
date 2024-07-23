@@ -24,9 +24,6 @@ jobs:
         with:
           java-version: '17'
 
-      - name: List files for debugging
-        run: ls -R
-
       - name: Build and install proto-common
         run: |
           cd proto-common
@@ -39,3 +36,9 @@ jobs:
       - name: Run tests for user-service
         run: |
           mvn test
+
+      - name: Report test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: junit-results
+          path: target/surefire-reports/*.xml
