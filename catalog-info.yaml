@@ -10,4 +10,7 @@ spec:
   lifecycle: experimental
   owner: team-b
   system: delivery-portal
-
+  providesApis:
+    - user-service-api
+#  consumesApis:
+#    - proto-common
