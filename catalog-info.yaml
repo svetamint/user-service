@@ -12,5 +12,5 @@ spec:
   system: delivery-portal
   providesApis:
     - user-service-api
- consumesApis:
-   - proto-common-service
+# consumesApis:
+#   - proto-common-service
