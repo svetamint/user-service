@@ -5,7 +5,7 @@ metadata:
   annotations:
     github.com/project-slug: svetamint/user-service
     backstage.io/techdocs-ref: dir:.
-    grafana.com/dashboard-uid: edy2cpu3h1f5se
+    grafana/dashboard-selector: edy2cpu3h1f5se
 spec:
   type: service
   lifecycle: experimental
