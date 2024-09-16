@@ -6,6 +6,11 @@ metadata:
     github.com/project-slug: svetamint/user-service
     backstage.io/techdocs-ref: dir:.
     grafana/dashboard-selector: edy2cpu3h1f5se
+  links:
+    - url: http://localhost:3003
+      title: Admin Dashboard
+      icon: dashboard
+      type: admin-dashboard  
 spec:
   type: service
   lifecycle: experimental
